@@ -45,12 +45,19 @@ def unordered_list(rows):
         result += f"* {row_num}\n"
     return result
 
+
+def done(result):
+    with open("output.md", "w") as f:
+        f.write(result)
+
+
 all_text = ""
 is_done = False
 all_formatters = ["plain", "bold", "italic", "header", "link", "inline-code", "new-line", "ordered-list", "unordered-list"]
 while not is_done:
     formatter = input("Choose a formatter: ")
     if formatter == '!done':
+        done(all_text)
         is_done = True
         break
     elif formatter == "!help":
